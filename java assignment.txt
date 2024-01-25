@@ -1,0 +1,45 @@
+﻿import java.util.Scanner;
+
+public class TwoDigitCalculation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input for the first number
+        System.out.print("Enter the first 2-digit number: ");
+        int num1 = getTwoDigitNumber(scanner);
+
+        // Input for the second number
+        System.out.print("Enter the second 2-digit number: ");
+        int num2 = getTwoDigitNumber(scanner);
+
+        // Perform calculations
+        int sum = num1 + num2;
+        int difference = num1 - num2;
+        int product = num1 * num2;
+        double quotient = (double) num1 / num2; // Using double for accurate division
+
+        // Display results
+        System.out.println("Sum: " + sum);
+        System.out.println("Difference: " + difference);
+        System.out.println("Product: " + product);
+        System.out.println("Quotient: " + quotient);
+
+        scanner.close();
+    }
+
+    // Helper method to get a valid 2-digit number from the user
+    private static int getTwoDigitNumber(Scanner scanner) {
+        int number;
+        do {
+            System.out.print("Enter a 2-digit number: ");
+            while (!scanner.hasNextInt()) {
+                System.out.print("Invalid input. Enter a 2-digit number: ");
+                scanner.next();
+            }
+            number = scanner.nextInt();
+        } while (number < 10 || number > 99); // Check if the number is 2-digit
+
+        return number;
+    }
+}
+
